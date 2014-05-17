@@ -1,0 +1,2223 @@
+  [1m[36m (341.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (300.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140411041736)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "login" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140411041736"]]
+  [1m[36m (315.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-10 21:23:34 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/railties-4.0.3/lib/rails/templates/rails/welcome/index.html.erb (1.2ms)
+Completed 200 OK in 22ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 21:24:25 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 614ms (Views: 612.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 21:24:26 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 21:24:26 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 21:24:26 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 21:24:26 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 21:24:26 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 21:24:26 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 21:24:26 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 21:24:26 -0700
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-04-10 21:24:29 -0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (15.8ms)
+  Rendered users/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 25ms (Views: 22.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-04-10 21:25:06 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t2qpWP5evLfzofRJvroD8VK8RQqqZvtUVP44LYhMQJk=", "user"=>{"name"=>"monica plata", "email"=>"awonica@gmail.com", "login"=>"blahLogin"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (193.4ms)[0m  INSERT INTO "users" ("created_at", "email", "login", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 11 Apr 2014 04:25:06 UTC +00:00], ["email", "awonica@gmail.com"], ["login", "blahLogin"], ["name", "monica plata"], ["updated_at", Fri, 11 Apr 2014 04:25:06 UTC +00:00]]
+  [1m[36m (374.4ms)[0m  [1mcommit transaction[0m
+  Rendered user_mailer/welcome_email.html.erb (0.5ms)
+  Rendered user_mailer/welcome_email.text.erb (0.3ms)
+
+Sent mail to awonica@gmail.com (15.6ms)
+Date: Thu, 10 Apr 2014 21:25:07 -0700
+From: from@example.com
+To: awonica@gmail.com
+Message-ID: <53476ea3305f4_14191b20088737df@ubuntu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_53476ea32e74f_14191b20088736cf";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_53476ea32e74f_14191b20088736cf
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, monica plata
+===============================================
+ 
+You have successfully signed up to example.com,
+your username is: blahLogin.
+ 
+To login to the site, just follow this link: http://example.com/login.
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_53476ea32e74f_14191b20088736cf
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, monica plata</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: blahLogin.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+----==_mimepart_53476ea32e74f_14191b20088736cf--
+
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 906ms (ActiveRecord: 567.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-04-10 21:25:07 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 21:25:07 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 21:25:07 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 21:25:07 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 21:25:07 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 21:25:07 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 21:25:07 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 21:25:07 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 21:25:07 -0700
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 21:27:31 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-04-10 21:27:33 -0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (3.0ms)
+  Rendered users/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-04-10 21:27:50 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t2qpWP5evLfzofRJvroD8VK8RQqqZvtUVP44LYhMQJk=", "user"=>{"name"=>"beto plata", "email"=>"apsilver23@gmail.com", "login"=>"blajhasdf"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (29.6ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "login", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 11 Apr 2014 04:27:50 UTC +00:00], ["email", "apsilver23@gmail.com"], ["login", "blajhasdf"], ["name", "beto plata"], ["updated_at", Fri, 11 Apr 2014 04:27:50 UTC +00:00]]
+  [1m[35m (422.2ms)[0m  commit transaction
+  Rendered user_mailer/welcome_email.html.erb (0.1ms)
+  Rendered user_mailer/welcome_email.text.erb (0.0ms)
+
+Sent mail to apsilver23@gmail.com (7.5ms)
+Date: Thu, 10 Apr 2014 21:27:51 -0700
+From: from@example.com
+To: apsilver23@gmail.com
+Message-ID: <53476f4711564_14193facfa2fb110739f7@ubuntu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_53476f471034f_14193facfa2fb11073848";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_53476f471034f_14193facfa2fb11073848
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, beto plata
+===============================================
+ 
+You have successfully signed up to example.com,
+your username is: blajhasdf.
+ 
+To login to the site, just follow this link: http://example.com/login.
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_53476f471034f_14193facfa2fb11073848
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, beto plata</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: blajhasdf.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+----==_mimepart_53476f471034f_14193facfa2fb11073848--
+
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 485ms (ActiveRecord: 451.9ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2014-04-10 21:27:51 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 21:27:51 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 21:27:51 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 21:27:51 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 21:27:51 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 21:27:51 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 21:27:51 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 21:27:51 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 21:27:51 -0700
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 21:28:59 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 21:28:59 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 21:28:59 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 21:28:59 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 21:28:59 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 21:28:59 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 21:28:59 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 21:28:59 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 21:28:59 -0700
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-04-10 21:29:06 -0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (4.0ms)
+  Rendered users/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2014-04-10 21:32:03 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (No route matches [GET] "/user"):
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/bet/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/bet/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/bet/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (33.9ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (269.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 21:32:07 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 55ms (Views: 37.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 21:32:07 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 21:32:07 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 21:32:07 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 21:32:07 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 21:32:07 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 21:32:07 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 21:32:07 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 21:32:07 -0700
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-04-10 21:32:09 -0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (11.3ms)
+  Rendered users/new.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-04-10 21:32:47 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "user"=>{"name"=>"beto plata", "email"=>"albertosilver@yahoo.com", "login"=>"pimp"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "users" ("created_at", "email", "login", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 11 Apr 2014 04:32:47 UTC +00:00], ["email", "albertosilver@yahoo.com"], ["login", "pimp"], ["name", "beto plata"], ["updated_at", Fri, 11 Apr 2014 04:32:47 UTC +00:00]]
+  [1m[36m (503.5ms)[0m  [1mcommit transaction[0m
+  Rendered user_mailer/welcome_email.html.erb (0.4ms)
+  Rendered user_mailer/welcome_email.text.erb (0.3ms)
+
+Sent mail to albertosilver@yahoo.com (10.0ms)
+Date: Thu, 10 Apr 2014 21:32:48 -0700
+From: from@example.com
+To: albertosilver@yahoo.com
+Message-ID: <534770708ef73_1558240eb4080374@ubuntu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_534770708d522_1558240eb40802ce";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_534770708d522_1558240eb40802ce
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, beto plata
+===============================================
+ 
+You have successfully signed up to example.com,
+your username is: pimp.
+ 
+To login to the site, just follow this link: http://example.com/login.
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_534770708d522_1558240eb40802ce
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, beto plata</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: pimp.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+----==_mimepart_534770708d522_1558240eb40802ce--
+
+Completed 500 Internal Server Error in 724ms
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 25):
+  app/controllers/users_controller.rb:31:in `block in create'
+  app/controllers/users_controller.rb:29:in `create'
+
+
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-04-10 21:41:49 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "user"=>{"name"=>"beto plata", "email"=>"albertosilver@yahoo.com", "login"=>"pimp"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "login", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 11 Apr 2014 04:41:49 UTC +00:00], ["email", "albertosilver@yahoo.com"], ["login", "pimp"], ["name", "beto plata"], ["updated_at", Fri, 11 Apr 2014 04:41:49 UTC +00:00]]
+  [1m[35m (390.3ms)[0m  commit transaction
+  Rendered user_mailer/welcome_email.html.erb (1.5ms)
+  Rendered user_mailer/welcome_email.text.erb (0.4ms)
+
+Sent mail to albertosilver@yahoo.com (11.5ms)
+Date: Thu, 10 Apr 2014 21:41:49 -0700
+From: from@example.com
+To: albertosilver@yahoo.com
+Message-ID: <5347728ded837_16332100f2066998@ubuntu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5347728deb9eb_16332100f20668be";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5347728deb9eb_16332100f20668be
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, beto plata
+===============================================
+ 
+You have successfully signed up to example.com,
+your username is: pimp.
+ 
+To login to the site, just follow this link: http://example.com/login.
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_5347728deb9eb_16332100f20668be
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, beto plata</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: pimp.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+----==_mimepart_5347728deb9eb_16332100f20668be--
+
+Completed 500 Internal Server Error in 642ms
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 25):
+  app/controllers/users_controller.rb:31:in `block in create'
+  app/controllers/users_controller.rb:29:in `create'
+
+
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 21:42:51 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 62ms (Views: 45.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 21:42:51 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 21:42:51 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 21:42:51 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:51 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:51 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:51 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:51 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:51 -0700
+
+
+Started DELETE "/users/4" for 127.0.0.1 at 2014-04-10 21:42:54 -0700
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "4"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.6ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 4]]
+  [1m[35m (424.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/users
+Completed 302 Found in 432ms (ActiveRecord: 427.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 21:42:55 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 21:42:55 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 21:42:55 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:55 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:55 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:55 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 21:42:55 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:55 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:55 -0700
+
+
+Started DELETE "/users/3" for 127.0.0.1 at 2014-04-10 21:42:56 -0700
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "3"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 3]]
+  [1m[36m (369.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 374ms (ActiveRecord: 370.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 21:42:57 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 21:42:57 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:57 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:57 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 21:42:57 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 21:42:57 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:57 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:57 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:57 -0700
+
+
+Started DELETE "/users/2" for 127.0.0.1 at 2014-04-10 21:42:58 -0700
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[35m (545.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/users
+Completed 302 Found in 548ms (ActiveRecord: 545.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 21:42:59 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 21:42:59 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:59 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 21:42:59 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:59 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 21:42:59 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:59 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:59 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 21:42:59 -0700
+
+
+Started DELETE "/users/1" for 127.0.0.1 at 2014-04-10 21:43:01 -0700
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 1]]
+  [1m[36m (415.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 419ms (ActiveRecord: 415.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 21:43:01 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 21:43:01 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 21:43:01 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 21:43:01 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 21:43:01 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 21:43:01 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 21:43:01 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 21:43:01 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 21:43:01 -0700
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-04-10 21:43:02 -0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (10.1ms)
+  Rendered users/new.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 21ms (Views: 20.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-04-10 21:43:21 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "user"=>{"name"=>"alberto plata", "email"=>"apsilver23@gmail.com", "login"=>"beto"}, "commit"=>"Create User"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "users" ("created_at", "email", "login", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 11 Apr 2014 04:43:21 UTC +00:00], ["email", "apsilver23@gmail.com"], ["login", "beto"], ["name", "alberto plata"], ["updated_at", Fri, 11 Apr 2014 04:43:21 UTC +00:00]]
+  [1m[36m (506.3ms)[0m  [1mcommit transaction[0m
+  Rendered user_mailer/welcome_email.html.erb (0.5ms)
+  Rendered user_mailer/welcome_email.text.erb (0.3ms)
+
+Sent mail to apsilver23@gmail.com (10.7ms)
+Date: Thu, 10 Apr 2014 21:43:22 -0700
+From: from@example.com
+To: apsilver23@gmail.com
+Message-ID: <534772eac5fd_16da1551940519f4@ubuntu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_534772eaada6_16da1551940518d8";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_534772eaada6_16da1551940518d8
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, alberto plata
+===============================================
+ 
+You have successfully signed up to example.com,
+your username is: beto.
+ 
+To login to the site, just follow this link: http://example.com/login.
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_534772eaada6_16da1551940518d8
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, alberto plata</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: beto.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+----==_mimepart_534772eaada6_16da1551940518d8--
+
+Completed 500 Internal Server Error in 716ms
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 25):
+  app/controllers/users_controller.rb:31:in `block in create'
+  app/controllers/users_controller.rb:29:in `create'
+
+
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-04-10 22:02:14 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "user"=>{"name"=>"alberto plata", "email"=>"apsilver23@gmail.com", "login"=>"beto"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "login", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 11 Apr 2014 05:02:14 UTC +00:00], ["email", "apsilver23@gmail.com"], ["login", "beto"], ["name", "alberto plata"], ["updated_at", Fri, 11 Apr 2014 05:02:14 UTC +00:00]]
+  [1m[35m (457.1ms)[0m  commit transaction
+  Rendered user_mailer/welcome_email.html.erb (1.0ms)
+  Rendered user_mailer/welcome_email.text.erb (0.4ms)
+
+Sent mail to apsilver23@gmail.com (10.7ms)
+Date: Thu, 10 Apr 2014 22:02:15 -0700
+From: albertosilver@yahoo.com
+To: apsilver23@gmail.com
+Message-ID: <534777578ae8d_18701d8b0d474451@ubuntu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5347775789410_18701d8b0d474322";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5347775789410_18701d8b0d474322
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, alberto plata
+===============================================
+ 
+You have successfully signed up to example.com,
+your username is: beto.
+ 
+To login to the site, just follow this link: http://example.com/login.
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_5347775789410_18701d8b0d474322
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, alberto plata</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: beto.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+----==_mimepart_5347775789410_18701d8b0d474322--
+
+Completed 500 Internal Server Error in 708ms
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 25):
+  app/controllers/users_controller.rb:31:in `block in create'
+  app/controllers/users_controller.rb:29:in `create'
+
+
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-10 22:02:17 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/railties-4.0.3/lib/rails/templates/rails/welcome/index.html.erb (2.1ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 22:02:24 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 33ms (Views: 31.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 22:02:24 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 22:02:24 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 22:02:24 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 22:02:24 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 22:02:24 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 22:02:24 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 22:02:24 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 22:02:24 -0700
+
+
+Started DELETE "/users/6" for 127.0.0.1 at 2014-04-10 22:02:28 -0700
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "id"=>"6"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "6"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 6]]
+  [1m[36m (549.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 556ms (ActiveRecord: 549.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 22:02:28 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 22:02:28 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 22:02:28 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 22:02:28 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 22:02:28 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 22:02:28 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 22:02:28 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 22:02:28 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 22:02:28 -0700
+
+
+Started DELETE "/users/5" for 127.0.0.1 at 2014-04-10 22:02:30 -0700
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 5]]
+  [1m[35m (448.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/users
+Completed 302 Found in 452ms (ActiveRecord: 449.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 22:02:30 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 22:02:30 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 22:02:30 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 22:02:30 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 22:02:30 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 22:02:30 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 22:02:30 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 22:02:30 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 22:02:30 -0700
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-04-10 22:02:31 -0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (13.5ms)
+  Rendered users/new.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 22ms (Views: 20.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-04-10 22:02:46 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "user"=>{"name"=>"alberto", "email"=>"apsilver23@gmail.com", "login"=>"beto"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "login", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 11 Apr 2014 05:02:46 UTC +00:00], ["email", "apsilver23@gmail.com"], ["login", "beto"], ["name", "alberto"], ["updated_at", Fri, 11 Apr 2014 05:02:46 UTC +00:00]]
+  [1m[35m (597.9ms)[0m  commit transaction
+  Rendered user_mailer/welcome_email.html.erb (0.1ms)
+  Rendered user_mailer/welcome_email.text.erb (0.1ms)
+
+Sent mail to apsilver23@gmail.com (8.7ms)
+Date: Thu, 10 Apr 2014 22:02:47 -0700
+From: albertosilver@yahoo.com
+To: apsilver23@gmail.com
+Message-ID: <53477777887be_18701d8a7c47462@ubuntu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5347777785e36_18701d8a7c474574";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5347777785e36_18701d8a7c474574
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, alberto
+===============================================
+ 
+You have successfully signed up to example.com,
+your username is: beto.
+ 
+To login to the site, just follow this link: http://example.com/login.
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_5347777785e36_18701d8a7c474574
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, alberto</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: beto.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+----==_mimepart_5347777785e36_18701d8a7c474574--
+
+Completed 500 Internal Server Error in 629ms
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 25):
+  app/controllers/users_controller.rb:31:in `block in create'
+  app/controllers/users_controller.rb:29:in `create'
+
+
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-10 22:09:57 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/railties-4.0.3/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 22:10:01 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 22:10:01 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 22:10:01 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 22:10:01 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 22:10:01 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 22:10:01 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 22:10:01 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 22:10:01 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 22:10:01 -0700
+
+
+Started DELETE "/users/7" for 127.0.0.1 at 2014-04-10 22:10:04 -0700
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "id"=>"7"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "7"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 7]]
+  [1m[36m (525.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 528ms (ActiveRecord: 525.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 22:10:05 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 22:10:05 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 22:10:05 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 22:10:05 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 22:10:05 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 22:10:05 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 22:10:05 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 22:10:05 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 22:10:05 -0700
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-04-10 22:10:05 -0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.4ms)
+  Rendered users/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-04-10 22:10:12 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "user"=>{"name"=>"beto", "email"=>"apsilver23@gmail.com", "login"=>"beto"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "email", "login", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 11 Apr 2014 05:10:12 UTC +00:00], ["email", "apsilver23@gmail.com"], ["login", "beto"], ["name", "beto"], ["updated_at", Fri, 11 Apr 2014 05:10:12 UTC +00:00]]
+  [1m[36m (590.9ms)[0m  [1mcommit transaction[0m
+  Rendered user_mailer/welcome_email.html.erb (0.5ms)
+  Rendered user_mailer/welcome_email.text.erb (0.4ms)
+
+Sent mail to apsilver23@gmail.com (7.9ms)
+Date: Thu, 10 Apr 2014 22:10:13 -0700
+From: albertosilver@yahoo.com
+To: apsilver23@gmail.com
+Message-ID: <534779357e816_18703fb2d4ab1384748d@ubuntu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_534779357cfed_18703fb2d4ab1384747d5";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_534779357cfed_18703fb2d4ab1384747d5
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, beto
+===============================================
+ 
+You have successfully signed up to example.com,
+your username is: beto.
+ 
+To login to the site, just follow this link: http://example.com/login.
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_534779357cfed_18703fb2d4ab1384747d5
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!-- <!DOCTYPE html> 
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h1>Welcome to example.com, beto</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: beto.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+-->
+<h1>hello brah</h1>
+
+----==_mimepart_534779357cfed_18703fb2d4ab1384747d5--
+
+Completed 500 Internal Server Error in 618ms
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 25):
+  app/controllers/users_controller.rb:31:in `block in create'
+  app/controllers/users_controller.rb:29:in `create'
+
+
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-10 22:21:07 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/railties-4.0.3/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
+Completed 200 OK in 21ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 22:21:16 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 38ms (Views: 35.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 22:21:16 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 22:21:16 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 22:21:16 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 22:21:17 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 22:21:17 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 22:21:17 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 22:21:17 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 22:21:17 -0700
+
+
+Started DELETE "/users/8" for 127.0.0.1 at 2014-04-10 22:21:20 -0700
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "8"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.4ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 8]]
+  [1m[35m (378.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/users
+Completed 302 Found in 387ms (ActiveRecord: 381.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 22:21:20 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 22:21:20 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 22:21:20 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 22:21:20 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 22:21:20 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 22:21:20 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 22:21:20 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 22:21:20 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 22:21:20 -0700
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-04-10 22:21:21 -0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (11.2ms)
+  Rendered users/new.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 20ms (Views: 19.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-04-10 22:21:31 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "user"=>{"name"=>"alberto", "email"=>"albertosilver@yahoo.com", "login"=>"beto"}, "commit"=>"Create User"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "login", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 11 Apr 2014 05:21:31 UTC +00:00], ["email", "albertosilver@yahoo.com"], ["login", "beto"], ["name", "alberto"], ["updated_at", Fri, 11 Apr 2014 05:21:31 UTC +00:00]]
+  [1m[35m (434.9ms)[0m  commit transaction
+  Rendered user_mailer/welcome_email.html.erb (0.5ms)
+  Rendered user_mailer/welcome_email.text.erb (0.4ms)
+
+Sent mail to albertosilver@yahoo.com (2538.1ms)
+Date: Thu, 10 Apr 2014 22:21:32 -0700
+From: albertosilver@yahoo.com
+To: albertosilver@yahoo.com
+Message-ID: <53477bdc43e68_19981343a54650de@ubuntu.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_53477bdc424d3_19981343a54649dc";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_53477bdc424d3_19981343a54649dc
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, alberto
+===============================================
+ 
+You have successfully signed up to example.com,
+your username is: beto.
+ 
+To login to the site, just follow this link: http://example.com/login.
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_53477bdc424d3_19981343a54649dc
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!-- <!DOCTYPE html> 
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h1>Welcome to example.com, alberto</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: beto.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+-->
+<h1>hello brah</h1>
+
+----==_mimepart_53477bdc424d3_19981343a54649dc--
+
+Redirected to http://localhost:3000/users/9
+Completed 302 Found in 3174ms (ActiveRecord: 436.0ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2014-04-10 22:21:34 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "9"]]
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 22:21:34 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 22:21:34 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 22:21:34 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 22:21:34 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 22:21:34 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 22:21:34 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 22:21:34 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 22:21:34 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-10 22:36:06 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/railties-4.0.3/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 22:36:11 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 12ms (Views: 8.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 22:36:11 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 22:36:11 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 22:36:11 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 22:36:11 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 22:36:11 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 22:36:11 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 22:36:11 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 22:36:11 -0700
+
+
+Started DELETE "/users/9" for 127.0.0.1 at 2014-04-10 22:36:15 -0700
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "9"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 9]]
+  [1m[35m (421.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/users
+Completed 302 Found in 425ms (ActiveRecord: 422.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 22:36:15 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 22:36:15 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 22:36:15 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 22:36:15 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 22:36:15 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 22:36:15 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 22:36:15 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 22:36:15 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 22:36:15 -0700
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-04-10 22:36:16 -0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (6.0ms)
+  Rendered users/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-04-10 22:36:24 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "user"=>{"name"=>"alberto", "email"=>"albertosilver@yahoo.com", "login"=>"asdf"}, "commit"=>"Create User"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "login", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 11 Apr 2014 05:36:24 UTC +00:00], ["email", "albertosilver@yahoo.com"], ["login", "asdf"], ["name", "alberto"], ["updated_at", Fri, 11 Apr 2014 05:36:24 UTC +00:00]]
+  [1m[35m (602.2ms)[0m  commit transaction
+  Rendered user_mailer/welcome_email.html.erb (0.5ms)
+  Rendered user_mailer/welcome_email.text.erb (0.4ms)
+
+Sent mail to albertosilver@yahoo.com (2505.6ms)
+Date: Thu, 10 Apr 2014 22:36:25 -0700
+From: albertosilver@yahoo.com
+To: albertosilver@yahoo.com
+Message-ID: <53477f5972f99_19983feb763a69ec65277@ubuntu.mail>
+Subject: I finally got this working!
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_53477f5971989_19983feb763a69ec651e7";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_53477f5971989_19983feb763a69ec651e7
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, alberto
+===============================================
+ 
+You have successfully signed up to example.com,
+your username is: asdf.
+ 
+To login to the site, just follow this link: http://example.com/login.
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_53477f5971989_19983feb763a69ec651e7
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!-- <!DOCTYPE html> 
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h1>Welcome to example.com, alberto</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: asdf.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+-->
+<h1>hello Babe!!</h1>
+
+<p>Even though this is coming from my personal email. I actually sent this from the web site!!</p> 
+<p>On our way!</p>
+
+----==_mimepart_53477f5971989_19983feb763a69ec651e7--
+
+Redirected to http://localhost:3000/users/10
+Completed 302 Found in 3132ms (ActiveRecord: 602.8ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2014-04-10 22:36:27 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "10"]]
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 22:36:28 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 22:36:28 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 22:36:28 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 22:36:28 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 22:36:28 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 22:36:28 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 22:36:28 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 22:36:28 -0700
+
+
+Started GET "/users/10/edit" for 127.0.0.1 at 2014-04-10 22:38:01 -0700
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "10"]]
+  Rendered users/_form.html.erb (2.3ms)
+  Rendered users/edit.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-10 22:38:04 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-04-10 22:38:05 -0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.0ms)
+  Rendered users/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-04-10 22:38:18 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "user"=>{"name"=>"monica", "email"=>"awonica@gmail.com", "login"=>"asdf"}, "commit"=>"Create User"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "login", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 11 Apr 2014 05:38:18 UTC +00:00], ["email", "awonica@gmail.com"], ["login", "asdf"], ["name", "monica"], ["updated_at", Fri, 11 Apr 2014 05:38:18 UTC +00:00]]
+  [1m[35m (431.3ms)[0m  commit transaction
+  Rendered user_mailer/welcome_email.html.erb (0.1ms)
+  Rendered user_mailer/welcome_email.text.erb (0.1ms)
+
+Sent mail to awonica@gmail.com (7349.2ms)
+Date: Thu, 10 Apr 2014 22:38:18 -0700
+From: albertosilver@yahoo.com
+To: awonica@gmail.com
+Message-ID: <53477fcad2816_19983feb766cfab06544f@ubuntu.mail>
+Subject: I finally got this working!
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_53477fcad0fcc_19983feb766cfab065375";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_53477fcad0fcc_19983feb766cfab065375
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, monica
+===============================================
+ 
+You have successfully signed up to example.com,
+your username is: asdf.
+ 
+To login to the site, just follow this link: http://example.com/login.
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_53477fcad0fcc_19983feb766cfab065375
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!-- <!DOCTYPE html> 
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h1>Welcome to example.com, monica</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: asdf.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+-->
+<h1>hello Babe!!</h1>
+
+<p>Even though this is coming from my personal email. I actually sent this from the web site!!</p> 
+<p>On our way!</p>
+
+----==_mimepart_53477fcad0fcc_19983feb766cfab065375--
+
+Redirected to http://localhost:3000/users/11
+Completed 302 Found in 7800ms (ActiveRecord: 431.8ms)
+
+
+Started GET "/users/11" for 127.0.0.1 at 2014-04-10 22:38:26 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "11"]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 11ms (Views: 6.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-10 22:38:26 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-10 22:38:26 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-10 22:38:26 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-10 22:38:26 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-10 22:38:26 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-10 22:38:26 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-04-10 22:38:26 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-10 22:38:26 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-17 07:26:52 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/railties-4.0.3/lib/rails/templates/rails/welcome/index.html.erb (4.4ms)
+Completed 200 OK in 58ms (Views: 41.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-05-17 07:28:33 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 513ms (Views: 480.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-17 07:28:34 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-17 07:28:34 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-17 07:28:34 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-17 07:28:34 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-17 07:28:34 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-17 07:28:34 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-05-17 07:28:34 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-17 07:28:34 -0700
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-05-17 07:28:56 -0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (45.8ms)
+  Rendered users/new.html.erb within layouts/application (49.5ms)
+Completed 200 OK in 55ms (Views: 53.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-05-17 07:29:11 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "user"=>{"name"=>"alberto", "email"=>"apsilver23@gmail.com", "login"=>"hello"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (238.8ms)[0m  INSERT INTO "users" ("created_at", "email", "login", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sat, 17 May 2014 14:29:11 UTC +00:00], ["email", "apsilver23@gmail.com"], ["login", "hello"], ["name", "alberto"], ["updated_at", Sat, 17 May 2014 14:29:11 UTC +00:00]]
+  [1m[36m (273.9ms)[0m  [1mcommit transaction[0m
+  Rendered user_mailer/welcome_email.html.erb (0.5ms)
+  Rendered user_mailer/welcome_email.text.erb (0.3ms)
+
+Sent mail to apsilver23@gmail.com (2803.1ms)
+Date: Sat, 17 May 2014 07:29:12 -0700
+From: albertosilver@yahoo.com
+To: apsilver23@gmail.com
+Message-ID: <5377723846e0b_d7af15ef043810@ubuntu.mail>
+Subject: I finally got this working!
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_53777238453c3_d7af15ef043757";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_53777238453c3_d7af15ef043757
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, alberto
+===============================================
+ 
+You have successfully signed up to example.com,
+your username is: hello.
+ 
+To login to the site, just follow this link: http://example.com/login.
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_53777238453c3_d7af15ef043757
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!-- <!DOCTYPE html> 
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h1>Welcome to example.com, alberto</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: hello.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+-->
+<h1>hello Babe!!</h1>
+
+<p>Even though this is coming from my personal email. I actually sent this from the web site!!</p> 
+<p>On our way!</p>
+
+----==_mimepart_53777238453c3_d7af15ef043757--
+
+Redirected to http://localhost:3000/users/12
+Completed 302 Found in 3687ms (ActiveRecord: 512.7ms)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2014-05-17 07:29:15 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "12"]]
+  Rendered users/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-17 07:29:15 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-17 07:29:15 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-05-17 07:29:15 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-17 07:29:15 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-17 07:29:15 -0700
+
+
+Started GET "/users" for 127.0.0.1 at 2014-05-17 07:33:07 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/12" for 127.0.0.1 at 2014-05-17 07:33:12 -0700
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "id"=>"12"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "12"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 12]]
+  [1m[36m (504.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 508ms (ActiveRecord: 505.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-05-17 07:33:13 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-17 07:33:13 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-17 07:33:13 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-17 07:33:13 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-05-17 07:33:13 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-17 07:33:13 -0700
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-05-17 07:33:15 -0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.8ms)
+  Rendered users/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-05-17 07:33:30 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "user"=>{"name"=>"betoo", "email"=>"apsilver23@gmail.com", "login"=>"ssddf"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "email", "login", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sat, 17 May 2014 14:33:30 UTC +00:00], ["email", "apsilver23@gmail.com"], ["login", "ssddf"], ["name", "betoo"], ["updated_at", Sat, 17 May 2014 14:33:30 UTC +00:00]]
+  [1m[36m (528.6ms)[0m  [1mcommit transaction[0m
+  Rendered user_mailer/welcome_email.html.erb (0.5ms)
+  Rendered user_mailer/welcome_email.text.erb (0.3ms)
+
+Sent mail to apsilver23@gmail.com (1870.6ms)
+Date: Sat, 17 May 2014 07:33:31 -0700
+From: albertosilver@yahoo.com
+To: apsilver23@gmail.com
+Message-ID: <5377733b1fd79_d7a3ff2323b6e60440eb@ubuntu.mail>
+Subject: An email from Alberto's website!!
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5377733b1e859_d7a3ff2323b6e6043945";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5377733b1e859_d7a3ff2323b6e6043945
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, betoo
+===============================================
+ 
+You have successfully signed up to example.com,
+your username is: ssddf.
+ 
+To login to the site, just follow this link: http://example.com/login.
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_5377733b1e859_d7a3ff2323b6e6043945
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!-- <!DOCTYPE html> 
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h1>Welcome to example.com, betoo</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: ssddf.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+-->
+<h1>hello there</h1>
+
+<p>This is an email from Alberto's website!!!'</p> 
+
+
+----==_mimepart_5377733b1e859_d7a3ff2323b6e6043945--
+
+Redirected to http://localhost:3000/users/13
+Completed 302 Found in 2425ms (ActiveRecord: 529.1ms)
+
+
+Started GET "/users/13" for 127.0.0.1 at 2014-05-17 07:33:33 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "13"]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-17 07:33:33 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-17 07:33:33 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-05-17 07:33:33 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-17 07:33:33 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-17 07:33:33 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-17 08:12:36 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/bet/.rvm/gems/ruby-2.1.0/gems/railties-4.0.3/lib/rails/templates/rails/welcome/index.html.erb (1.2ms)
+Completed 200 OK in 21ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-05-17 08:13:03 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 42ms (Views: 40.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-17 08:13:03 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-17 08:13:03 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-17 08:13:03 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-05-17 08:13:03 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-17 08:13:03 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-05-17 08:13:03 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-17 08:13:03 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-17 08:13:03 -0700
+
+
+Started DELETE "/users/13" for 127.0.0.1 at 2014-05-17 08:13:07 -0700
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "13"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.6ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[35m (559.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/users
+Completed 302 Found in 566ms (ActiveRecord: 561.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-05-17 08:13:07 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-17 08:13:07 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-17 08:13:07 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-17 08:13:07 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-17 08:13:07 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-17 08:13:07 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-05-17 08:13:07 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-17 08:13:07 -0700
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-05-17 08:13:09 -0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (10.0ms)
+  Rendered users/new.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-05-17 08:13:27 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Dv9JRKRlSngyFXJRKCOADbQ/hrVMcYw0n1QPIAG/u/Q=", "user"=>{"name"=>"adf", "email"=>"albertoplatatestemail@gmail.com", "login"=>"asdf"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "login", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 17 May 2014 15:13:27 UTC +00:00], ["email", "albertoplatatestemail@gmail.com"], ["login", "asdf"], ["name", "adf"], ["updated_at", Sat, 17 May 2014 15:13:27 UTC +00:00]]
+  [1m[35m (495.5ms)[0m  commit transaction
+  Rendered user_mailer/welcome_email.html.erb (0.5ms)
+  Rendered user_mailer/welcome_email.text.erb (0.3ms)
+
+Sent mail to albertoplatatestemail@gmail.com (2281.4ms)
+Date: Sat, 17 May 2014 08:13:28 -0700
+From: albertosilver@yahoo.com
+To: albertoplatatestemail@gmail.com
+Message-ID: <53777c98334ec_16b61319560418fc@ubuntu.mail>
+Subject: An email from Alberto's website!!
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_53777c9831bec_16b6131956041730";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_53777c9831bec_16b6131956041730
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com, adf
+===============================================
+ 
+You have successfully signed up to example.com,
+your username is: asdf.
+ 
+To login to the site, just follow this link: http://example.com/login.
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_53777c9831bec_16b6131956041730
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!-- <!DOCTYPE html> 
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h1>Welcome to example.com, adf</h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: asdf.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+-->
+<h1>hello there</h1>
+
+<p>This is an email from Alberto's website!!!'</p> 
+
+
+----==_mimepart_53777c9831bec_16b6131956041730--
+
+Redirected to http://localhost:3000/users/14
+Completed 302 Found in 2974ms (ActiveRecord: 496.5ms)
+
+
+Started GET "/users/14" for 127.0.0.1 at 2014-05-17 08:13:30 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "14"]]
+  Rendered users/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 10ms (Views: 7.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-17 08:13:30 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-05-17 08:13:30 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-17 08:13:30 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-17 08:13:30 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-17 08:13:30 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-05-17 08:13:30 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-17 08:13:30 -0700
